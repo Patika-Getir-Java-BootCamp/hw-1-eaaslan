@@ -917,6 +917,136 @@ class UserService {
 # 10.Heap and Stack means and differences ?​
 
 
+Before we dive into stack and heap, let me explain what is a memory. When your programs run it needs to space to store data. JVM organizes this memory into different regions, with the stack and heaps being the most important and both stack and heap memory are located in computer's RAM
+
+## Stack
+
+The stack is a data structure that stores information in the form of a Last-In-First-Out (LIFO) list. It is used to store local variables and method calls.
+
+## Heap
+
+It is also known as dynamic memory. It is used to store objects and data. Its great for storing large data structures or objects.
+
+
+### How it works ?
+
+<table>
+<tr>
+<td>
+
+
+```java
+
+public class MemoryDemo {
+    public static void main(String[] args) {
+        // Stack: main method frame is created
+        
+        int localVar = 5;          // Stack: localVar is created
+        
+        Student enes = createStudent("Enes", 20);  // Stack: enes reference
+        
+        int[] grades = new int[3]; // Stack: grades reference
+                                    // Heap: int array object
+        
+        grades[0] = 90;            // Heap: array element modified
+        grades[1] = 85;            // Heap: array element modified
+        grades[2] = 95;            // Heap: array element modified
+        
+        alice.setGrades(grades);   // Heap: Student object updated
+        
+        double average = enes.calculateAverage();  // Stack: average variable
+        
+        System.out.println(average);  // Prints 90.0
+    }
+    
+    public static Student createStudent(String name, int age) {
+        // Stack: createStudent method frame with parameters name and age
+        
+        Student student = new Student(name, age);  // Stack: student reference
+                                                   // Heap: Student object
+        
+        return student;  // Returns reference to the Student object
+    }
+}
+
+class Student {
+    private String name;    // These instance variables will be stored in the heap
+    private int age;        // as part of the Student object
+    private int[] grades;
+    
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    public void setGrades(int[] grades) {
+        this.grades = grades;  // Stores the reference to the grades array
+    }
+    
+    public double calculateAverage() {
+        // Stack: calculateAverage method frame
+        
+        int sum = 0;           // Stack: sum variable
+        
+        for(int grade : grades) {  // Stack: grade variable for each iteration
+            sum += grade;
+        }
+        
+        return (double) sum / grades.length;  // Calculation happens on stack
+    }
+}
+
+
+
+```
+</td>
+<td>
+
+![Untitled](stack-heap.png)
+
+</td>
+</tr>
+</table>
+
+### Differences between stack and heap
+# Stack vs Heap Memory Differences
+
+| **Feature**                  | **Stack**                                                                 | **Heap**                                                                 |
+|------------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| **Memory Management**        | Automatic (managed by the compiler).                                     | Manual (managed by the programmer or garbage collector).                 |
+| **Speed**                    | Fast (uses pointer adjustment).                                          | Slow (requires searching for memory blocks and handling fragmentation).  |
+| **Memory Size**              | Fixed size (determined at program start).                                | Dynamic size (can grow/shrink during runtime).                           |
+| **Data Accessibility**       | Accessible only during active function calls.                            | Accessible until explicitly deallocated or the program ends.             |
+| **Purpose**                  | Function calls, local variables, control data (e.g., return addresses).  | Dynamically allocated objects (e.g., created with `new` in Java/C++).    |
+| **Allocation**               | Contiguous (LIFO structure).                                             | Random (hierarchical structure).                                         |
+| **Thread Safety**            | Thread-safe (only accessible by the owning thread).                      | Not thread-safe (accessible by all threads).                             |
+| **Flexibility**              | Fixed size (no resizing).                                                | Supports dynamic resizing.                                               |
+| **Cost**                     | Low (direct stack operations).                                           | High (fragmentation and search overhead).                                |
+| **Data Structure**           | Linear (sequential function calls).                                      | Hierarchical (objects at scattered addresses).                           |
+| **Common Issues**            | Stack overflow (e.g., infinite recursion).                               | Memory leaks or fragmentation.                                           |
+| **Preferred Use Cases**      | Static data (e.g., arrays, primitive types).                             | Dynamic data (e.g., linked lists, large objects).                        |
+| **Locality of Reference**    | Excellent (sequential access).                                           | Adequate (random access).                                                |
+| **Implementation Complexity**| Simple (compiler-managed).                                               | Complex (manual management or GC optimization required).                 |
+
+---
+
+## Examples
+### **Stored in Stack**:
+- Primitive types (`int x = 10`).
+- Function parameters (`methodA(int param)`).
+- Local variables (`double y = 20.5`).
+
+### **Stored in Heap**:
+- Objects (`Person person = new Person("Enes")`).
+- String literals (`String message = "Hello"`).
+- Dynamic data structures (e.g., `ArrayList`, `HashMap`).
+
+---
+
+## Summary
+- **Stack**: Fast, automatic, function-scoped, short-lived data.
+- **Heap**: Slow, dynamic, globally accessible, long-lived data.
+
 # 11.Exceptions
 
 An exception is an event that occurs during the execution of a program and distrupt the normal flow of the program.
