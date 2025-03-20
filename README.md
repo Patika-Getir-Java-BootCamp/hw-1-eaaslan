@@ -582,6 +582,10 @@ abstract class Shape { // A concrete class that extend this abstract class is a 
 ```
 
 # 3. hashCode() and equals():
+<table>
+<tr>
+
+<td width="50%">
 
 ```java
 //equals() and hashCode() not overriden
@@ -595,6 +599,13 @@ hashCode(user); // 167304929
 hashCode(user2); // 167304939
 System.out.println(list.size()); // 2
 ```
+</td>
+<td width="50%">
+<img src="https://github.com/user-attachments/assets/98a1a4fc-2456-4fb4-bd22-b669a838faa8" alt="Object Stack and Heap Diagram" width="600">
+</td>
+
+
+</table>
 
 When equals() is not overriden, it inherit from Object and it check memory addresses so user.equals(user2) is not equal and if user want to keep unique object in HashSet or HashMap, the process uses hashCode() to check objects are unique or not. So equal objects must have same hashCode() value.Therefore, if equals() is overriden for an object then hashCode() must be overriden too.
 
@@ -705,10 +716,23 @@ Immutability means when object has been created, it can not be changed during it
 
 For example:
 
+<table>
+<tr>
+<td width="30%">
+
 ```java
 String name="Enes"
 name += " Aslan"
 ```
+</td>
+<td width="70%">
+
+![string-pool](https://github.com/user-attachments/assets/555f8d62-018a-4e10-abe2-d2e99b9ff395)
+
+</td>
+</tr>
+</table>
+
 As you see on image when add "Aslan" to name, it creates a new String in heap and adress of name variable is changed to new String.
 But the old string is waiting string pool until it's no longer referenced by any variable and become suitable for garbage collection.
 This is why string concentation in loops is not efficent.
@@ -790,7 +814,7 @@ Helps us to model real world relationships.
 
 Composition implies strong relationship between classes where the child class cant exist without the parent class. Simply say "You are nothing without me".
 
-https://cdn-images.visual-paradigm.com/guide/uml/uml-aggregation-vs-composition/07-uml-composition-example.png
+![Untitled](https://cdn-images.visual-paradigm.com/guide/uml/uml-aggregation-vs-composition/07-uml-composition-example.png)
 
 
 
@@ -798,7 +822,7 @@ https://cdn-images.visual-paradigm.com/guide/uml/uml-aggregation-vs-composition/
 
 Aggregation is a weaker form of has-a relationships. Both entries have independent lifecyle and they can exist without each other.
 
-https://cdn-images.visual-paradigm.com/guide/uml/uml-aggregation-vs-composition/04-association-multiplicity-example-01.png
+![Untitled](https://cdn-images.visual-paradigm.com/guide/uml/uml-aggregation-vs-composition/04-association-multiplicity-example-01.png)
 
 As you seen on UML a single student can associate with multiple Instructor. If a student is deleted, the instructors still exist or vice versa.
 
@@ -910,6 +934,8 @@ The method where the problem occured "throws" this exception object and handing 
 
 Once an exception is thrown, runtime system searches backwards throught call stack(it is the list of active method calls) to find handlers(try-catch) block that matches the error type if finds it, it passes the exception object to the handler. If it doesn't find it, JVM will terminate the program.
 
+
+
 ``` java
 
 public static void methodA() {
@@ -933,11 +959,13 @@ public static void methodA() {
     }
 
 ```
+![Untitled](https://github.com/user-attachments/assets/13c709b4-0ffc-4916-b035-051bbb77a73d)
+
 When an error occurs in methodC, the runtime system first searches for an exception handler in methodC. If it doesn't find one, it searches in methodB. If it still doesn't find a handler, it searches in methodA. If no exception handler is found in any of these methods, the JVM terminates the program but in this example we have a handler in methodA so the program continues to run.
 
 
 
-https://media.geeksforgeeks.org/wp-content/uploads/Exception-in-java1.png
+![Untitled](https://media.geeksforgeeks.org/wp-content/uploads/Exception-in-java1.png)
 
 There are three type of exceptions:
 
