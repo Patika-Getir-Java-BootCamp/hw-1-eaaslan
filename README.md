@@ -1,6 +1,6 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/7TXVPuTD)
 
-# Object-Oriented Programming:
+# 1.Object-Oriented Programming:
 
 OOP is a programming paradigm that organizes software designs as objects. Each object has its own properties and methods. 
 
@@ -553,7 +553,7 @@ printf("Name: %s\n", animal->name);
 </tr>
 </table>
 
-# Interface vs Abstract class
+# 2.Interface vs Abstract class
 
 Both of them are used to achieve abstraction.
 But there are some differences:
@@ -924,11 +924,11 @@ In java Exceptions(as a class) are subclass of Throwable class.
 
 Flow of exception
 When something goes wrong in Java, a special object called Exception object is created. We can think of this a detailed inciden report and its containing:
--Type of problem
--Where it happened
--The state of the program
+- Type of problem
+- Where it happened
+- The state of the program
 
-![Java Exception Flow](http://www.techguruspeaks.com/wp-content/uploads/2019/02/jse001.jpg)
+![Untitled](https://media.geeksforgeeks.org/wp-content/uploads/Exception-in-java1.png)
 
 The method where the problem occured "throws" this exception object and handing to JVM. In short it says "hey, I have a problem and I don't know how to handle it".
 
@@ -965,7 +965,6 @@ When an error occurs in methodC, the runtime system first searches for an except
 
 
 
-![Untitled](https://media.geeksforgeeks.org/wp-content/uploads/Exception-in-java1.png)
 
 There are three type of exceptions:
 
