@@ -1002,7 +1002,7 @@ class Student {
 </td>
 <td width="50%">
 
-![Untitled](stack-heap.png)
+![stack-heap](https://github.com/user-attachments/assets/500918c5-be60-4a80-8b61-9906e26a0353)
 
 </td>
 </tr>
@@ -1194,7 +1194,71 @@ These are two fundemental concepts in OOP.
  ## 2-Polymorphism
  Polymorphism is a concept in OOP that allows you to perform a single action in different ways. We can implement through method overloading and method overriding.
 
+---
 
+## How Polymorphism Works in Java
+
+### 1. **Runtime Polymorphism (Method Overriding)**
+- A subclass provides a specific implementation of a method defined in its superclass/interface.
+- Example:
+  ```java
+  interface Shape {
+      void draw();
+  }
+
+  class Circle implements Shape {
+      @Override
+      public void draw() {
+          System.out.println("Drawing a circle");
+      }
+  }
+
+  class Rectangle implements Shape {
+      @Override
+      public void draw() {
+          System.out.println("Drawing a rectangle");
+      }
+  }
+
+  // Usage
+  Shape shape1 = new Circle();
+  Shape shape2 = new Rectangle();
+  shape1.draw(); // Output: "Drawing a circle"
+  shape2.draw(); // Output: "Drawing a rectangle"
+  ```
+
+### 2. **Compile-Time Polymorphism (Method Overloading)**
+- Multiple methods with the same name but different parameters.
+- Example:
+  ```java
+  class Calculator {
+      int add(int a, int b) { 
+          return a + b; 
+      }
+      
+      double add(double a, double b) { 
+          return a + b; 
+      } // Overloaded method
+  }
+  ```
+
+---
+
+## Key Differences: Abstraction vs. Polymorphism
+
+| **Aspect**        | **Abstraction**                                  | **Polymorphism**                               |
+|--------------------|--------------------------------------------------|------------------------------------------------|
+| **Purpose**        | Hide complexity, show essentials.                | Allow one interface to behave differently.     |
+| **Implementation** | Uses `abstract` classes and `interfaces`.        | Uses method **overriding** (runtime) and **overloading** (compile-time). |
+| **Focus**          | **Design-level** (what an object does).          | **Behavior-level** (how an object does it).    |
+| **Keyword**        | `abstract`, `interface`.                         | `extends`, `implements`, `@Override`.          |
+| **Example**        | Define a `Vehicle` interface with `start()`.     | A `Vehicle` can be a `Car` or `Bike` overriding `start()`. |
+
+---
+
+## Summary
+- **Polymorphism**: Enables flexibility by defining **how** an object does something, depending on its type.  
+- **Abstraction**: Simplifies complexity by defining **what** an object should do (hiding how it does it).  
 
 
 
