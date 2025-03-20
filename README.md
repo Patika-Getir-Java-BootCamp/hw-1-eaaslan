@@ -1180,8 +1180,36 @@ As we mentioned on checked exception about oracle documentation :
 # 13. What is method hiding in Java?
 
 Method hiding is a concept in Java allows to defines subclass' static method with the same signature as a method in the superclass.
-It rarely used and not considered a good practice. 
+It rarely used and not considered a good practice. Unlike method overriding, method hiding is resolved in compile time.
+
 Link : [Stackoverflow discussion](https://stackoverflow.com/questions/2223386/why-doesnt-java-allow-overriding-of-static-methods)   and [Further reading about statics but related](https://stackoverflow.com/questions/7026507/why-are-static-variables-considered-evil/7084473#7084473)
+
+```java
+class Superclass {
+    static void display() {
+        System.out.println("Superclass static method");
+    }
+}
+
+class Subclass extends Superclass {
+    static void display() { // Hides Superclass's display()
+        System.out.println("Subclass static method");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Superclass obj = new Subclass();
+        obj.display(); // Calls Superclass's display() (reference type: Superclass)
+        Subclass.display(); // Calls Subclass's display()
+
+        //Output :Superclass static method
+        //Output :Subclass static method
+    }
+}
+
+```
+
 
 
 # 14.What is the difference between abstraction and polymorphism in Java ?​
