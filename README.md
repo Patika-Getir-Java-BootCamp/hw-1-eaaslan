@@ -1000,7 +1000,7 @@ class Student {
 
 ```
 </td>
-<td>
+<td width="50%">
 
 ![Untitled](stack-heap.png)
 
@@ -1182,6 +1182,17 @@ As we mentioned on checked exception about oracle documentation :
 Method hiding is a concept in Java allows to defines subclass' static method with the same signature as a method in the superclass.
 It rarely used and not considered a good practice. 
 Link : [Stackoverflow discussion](https://stackoverflow.com/questions/2223386/why-doesnt-java-allow-overriding-of-static-methods)   and [Further reading about statics but related](https://stackoverflow.com/questions/7026507/why-are-static-variables-considered-evil/7084473#7084473)
+
+
+# 14.What is the difference between abstraction and polymorphism in Java ?​
+
+These are two fundemental concepts in OOP.
+
+## 1-Abstraction
+ As we talked before is a process of hiding the implementation details and showing only the functionality to the user. We can implement through abstract class and interface. Link -> [Interface vs Abstract class](#2interface-vs-abstract-class)
+
+ ## 2-Polymorphism
+ Polymorphism is a concept in OOP that allows you to perform a single action in different ways. We can implement through method overloading and method overriding.
 
 
 
